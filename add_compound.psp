@@ -1,0 +1,15 @@
+<!DOCTYPE HTML PUBLIC>
+<HTML>
+   <HEAD>
+      <TITLE>Add organism</TITLE>
+   </HEAD>
+   <BODY>
+<% 
+import sys
+sys.path.append('/home/bi2_pg5/public_html/webapplicatie/PubCheck/js')
+import addCompound
+compound = form["compound"]
+%>
+<%=addCompound.addCompound(compound) %>
+   </BODY>
+</HTML>

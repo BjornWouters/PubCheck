@@ -1,0 +1,158 @@
+body {
+	background-image: url();
+	background-repeat: no-repeat;
+	background-color: #eef2f4;
+}
+
+.data_sep {
+	position: absolute;
+	left: 40%;
+	height: 100%;
+	top: 100px;
+}
+
+
+.tablePOS {
+	top: 101px;
+	position: absolute;
+	overflow: hidden;
+	left: 42%;
+}
+.searchTable{
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+}
+
+.node rect {
+  cursor: pointer;
+  fill: #fff;
+  fill-opacity: .5;
+  stroke: #3182bd;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 10px sans-serif;
+  pointer-events: none;
+}
+
+path.link {
+  fill: none;
+  stroke: #9ecae1;
+  stroke-width: 1.5px;
+}
+
+.window_slider {
+	position: absolute;
+	height: 50px;
+	width: 17px;
+	top: 6px;
+	z-index: 2;
+	left: -17px;
+}
+.graph {
+	left: 0px;
+	position: absolute;
+	bottom: 0px;
+	overflow: scroll;
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+}
+
+
+.header_image {
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+}
+#logo {
+	left: 10px;
+	bottom: 0%;
+	z-index: 10;
+	position: absolute;
+}
+
+
+.link {
+     background-color: #999;
+     position: absolute;
+}
+
+#graph1{
+     position: absolute;
+     vertical-align:middle;
+     width: 100%;
+     height: 100%;
+}
+#graph1 > svg {
+	width: 100%;
+    height: 100%;
+}
+
+.parameters {
+	position: absolute;
+	height: 75%;
+	width: 400px;
+	top: 98px;
+	right: 0px;
+	bottom: auto;
+	left: auto;
+	z-index: 1;
+}
+.compount_input {
+	right: 7%;
+	top: 20%;
+	position: absolute;
+	width: 190px;
+}
+.compount_text {
+	left: 30px;
+	top: 20%;
+	position: absolute;
+}
+
+
+.parameters_variables {
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+}
+
+.scrollwrapper {
+	bottom: 0%;
+	overflow: scroll;
+	overflow-x: hidden;
+	position: absolute;
+	height: 20%;
+	width: 100%;
+	background-color: #FFF;
+	left: 0px;
+}
+.Header {
+	position: absolute;
+	height: 100px;
+	width: 100%;
+	left: 3px;
+	top: 3px;
+	right: auto;
+	z-index: 1;
+}
+
+.webapp_button {
+	position: absolute;
+	z-index: 2;
+	left: 400px;
+	bottom: 5px;
+	opacity: 0.4;
+}
+.webapp_button:hover
+{
+opacity:0.6;
+cursor: pointer;
+}

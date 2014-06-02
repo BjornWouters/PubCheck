@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:xlink="http://www.w3.org/1999/xlink">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/css.css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href="css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css"/>
+<link href="css/footable.standalone.css" rel="stylesheet" type="text/css"/>
+<link href="css/footable-demos.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="js/create_graph.js"></script>
+<script type="text/javascript" src="js/analyse.js"></script>
+<script type="text/javascript" src="js/extend.js"></script>
+<script src="js/footable.js?v=2-0-1" type="text/javascript"></script>
+<script src="js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+<script src="js/footable.filter.js?v=2-0-1" type="text/javascript"></script>
+<script src="js/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+<script src="js/bootstrap-tab.js" type="text/javascript"></script>
+<title>PubCheck</title>
+</head>
+
+<body>
+    <div class="Header">
+        <img src="pictures/header.png" alt="" name="Header" width="800" height="100" class="header_image" id="Header" />
+        <a href="webpage.psp?query=">
+        <img src="pictures/visual_button.png" width="120" height="84" class="webapp_button"/></a>
+        <a href="extend.html">
+        <img src="pictures/Extend_button.png" width="120" height="84" class="webapp_button" style="left:522px"/></a>
+  		<a href="#">
+        <img src="pictures/data_button.png" width="120" height="84" class="webapp_button" style="left:644px"/></a>
+        <a onclick="searchCompound()">
+        <img src="pictures/search_button.png" width="120" height="84" class="webapp_button" style="left:766px"/></a>
+        <a href="#">
+        <img src="pictures/help_button.png" width="120" height="84" class="webapp_button" style="left:888px"/></a>
+    	<img src="pictures/logo.png" width="300" height="100" id="logo"/> 
+    </div>
+
+    <div class="Graph">
+        <form method="get" id="form" id="query">
+            <input type="text" name="query" id="values" style="visibility:hidden">
+        </form>
+    </div>
+
+	<script type="text/javascript">
+        main()
+    </script>
+
+<% 
+import sys
+sys.path.append('/home/bi2_pg5/public_html/webapplicatie/PubCheck/js')
+import table
+query = form["query"]
+%>
+
+    <div class="tablePOS">
+        <table class="footable metro_blue" data-page-size="8">
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Date of publication
+                    </th>
+                    <th>
+                        Authors
+                    </th>
+                    <th>
+                        Publication journal
+                    </th>
+                    <th>
+                        Query
+                    </th>
+                    <th data-hide="all"></th>
+                    </tr>
+            </thead>
+            <tbody>
+                <%=table.createTable(query) %>
+            </tbody>
+            <tfoot>
+                <tr>
+                <td colspan="5">
+                    <div class="pagination pagination-centered"></div>
+                </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+	<script type="text/javascript">
+        $(function () {
+            $('table').footable();
+        });
+    </script>
+</body>
+</html>

@@ -46,5 +46,5 @@ def builder(clause1,clause2): # de query samenstellen
         string+='('
     for x in compounds:
         string+='('
-    return string+clause1+') AND '+clause2
+    return string+clause1+') AND '+clause2+')'
 

@@ -9,7 +9,7 @@ def addCompound(compound):
         else:
             toDatabase(compound)
 
-def toDatabase(compound);
+def toDatabase(compound):
         conn = mysql.connector.connect (host = "127.0.0.1",
                                         user = "bi2_pg5",
                                         password = "blaat1234",

@@ -2,6 +2,14 @@ import mysql.connector
 from QueryBuilder import createQuery
 
 def addCompound(compound):
+        if ";" in compound:
+            compoundList = compound.split(";")
+            for i in compoundList:
+                toDatabase(compoundList[i])
+        else:
+            toDatabase(compound)
+
+def toDatabase(compound);
         conn = mysql.connector.connect (host = "127.0.0.1",
                                         user = "bi2_pg5",
                                         password = "blaat1234",

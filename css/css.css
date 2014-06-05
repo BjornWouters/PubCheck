@@ -11,6 +11,19 @@ body {
 	top: 100px;
 }
 
+.compoundTable{
+	position: absolute;
+	top: 101px;
+	left: 100px;
+	width: 40%;
+}
+
+.organismTable{
+	position: absolute;
+	top: 101px;
+	left: calc(40% + 200px);
+	width: 40%;
+}
 
 .tablePOS {
 	top: 101px;

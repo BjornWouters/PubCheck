@@ -11,6 +11,7 @@ body {
 }
 
 .compoundTable{
+<<<<<<< HEAD
 	overflow: hidden;
 	left: 0px;
 	position: absolute;
@@ -24,6 +25,19 @@ body {
 	top: 101px;
 	left: 50%;
 	width: 50%;
+=======
+	position: absolute;
+	top: 101px;
+	left: 100px;
+	width: 40%;
+}
+
+.organismTable{
+	position: absolute;
+	top: 101px;
+	left: calc(40% + 200px);
+	width: 40%;
+>>>>>>> 467898321e93257e946ea6167d75d92bcceefe24
 }
 
 .tablePOS {

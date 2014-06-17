@@ -1,5 +1,6 @@
 import mysql.connector
 from QueryBuilder import createQuery
+<<<<<<< HEAD
 returnString = ""
 
 def addCompound(compound_raw):
@@ -15,6 +16,18 @@ def addCompound(compound_raw):
 
 def toDatabase(compound):
         global returnString
+=======
+
+def addCompound(compound):
+        if ";" in compound:
+            compoundList = compound.split(";")
+            for i in compoundList:
+                toDatabase(compoundList[i])
+        else:
+            toDatabase(compound)
+
+def toDatabase(compound):
+>>>>>>> 467898321e93257e946ea6167d75d92bcceefe24
         conn = mysql.connector.connect (host = "127.0.0.1",
                                         user = "bi2_pg5",
                                         password = "blaat1234",

@@ -32,6 +32,16 @@ def compoundSynonyms(compounds, compound): # Synonymen voor compounds vinden
             compounds.append(cmpnd)
     return ' OR '.join(compounds)
 
+<<<<<<< HEAD
 def builder(organism,clause): # de query samenstellen
     return ''+organism+' AND ('+clause+')'
+=======
+def builder(clause1,clause2): # de query samenstellen
+    string=''
+    for x in organisms:
+        string+='('
+    for x in compounds:
+        string+='('
+    return string+clause1+') AND '+clause2+')'
+>>>>>>> 467898321e93257e946ea6167d75d92bcceefe24
 

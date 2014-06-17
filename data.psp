@@ -2,7 +2,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<<<<<<< HEAD
 <title>PubCheck</title>
+=======
+>>>>>>> 467898321e93257e946ea6167d75d92bcceefe24
 <link rel="stylesheet" type="text/css" media="screen" href="css/css.css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <link href="css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css"/>
@@ -22,6 +25,22 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+=======
+<%import mysql.connector
+compound = ''
+conn = mysql.connector.connect (host = "127.0.0.1",
+                                user = "bi2_pg5",
+                                password = "blaat1234",
+                                db= "bi2_pg5")
+cursor_org = conn.cursor()
+cursor_org.execute("SELECT * FROM compound")
+
+for row in cursor_org:
+	compound+=row[1]+"+"
+cursor_org.close()
+%>
+>>>>>>> 467898321e93257e946ea6167d75d92bcceefe24
     <div class="Header">
         <img src="pictures/header.png" alt="" name="Header" width="800" height="100" class="header_image" id="Header" />
         <a href="webpage.psp?query=">
@@ -46,7 +65,11 @@ import createOrganism
 %>
 
     <div class="compoundTable">
+<<<<<<< HEAD
         <table class="footable metro_blue" data-page-size="10">
+=======
+        <table class="footable metro_blue" data-page-size="8">
+>>>>>>> 467898321e93257e946ea6167d75d92bcceefe24
             <thead>
                 <tr>
                     <th>
@@ -59,7 +82,11 @@ import createOrganism
             </tbody>
             <tfoot>
                 <tr>
+<<<<<<< HEAD
                 <td colspan="5">
+=======
+                <td colspan="2">
+>>>>>>> 467898321e93257e946ea6167d75d92bcceefe24
                     <div class="pagination pagination-centered"></div>
                 </td>
                 </tr>
@@ -68,7 +95,11 @@ import createOrganism
     </div>
 	
 	<div class="organismTable">
+<<<<<<< HEAD
         <table class="footable metro_blue" data-page-size="10">
+=======
+        <table class="footable metro_blue" data-page-size="1">
+>>>>>>> 467898321e93257e946ea6167d75d92bcceefe24
             <thead>
                 <tr>
                     <th>
@@ -88,12 +119,15 @@ import createOrganism
             </tfoot>
         </table>
     </div>
+<<<<<<< HEAD
 
 <script type="text/javascript">
 	$(function () {
 		$('table').footable();
 	});
 </script>
+=======
+>>>>>>> 467898321e93257e946ea6167d75d92bcceefe24
 
 </body>
 </html>

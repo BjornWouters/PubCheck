@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<link href="css/css_extend.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/extend.js"></script>
+<style type="text/css">
+body {
+	background-color: #CCC;
+}
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+}
+</style>
+</head>
+
+<body>
+
+	<div class="Header">
+        <img src="pictures/header.png" alt="" name="Header" width="800" height="100" class="header_image" id="Header" />
+        <a href="webpage.psp?query=">
+        <img src="pictures/visual_button.png" width="120" height="84" class="webapp_button"/></a>
+        <a href="extend.html">
+        <img src="pictures/Extend_button.png" width="120" height="84" class="webapp_button" style="left:522px"/></a>
+  		<a href="#">
+        <img src="pictures/data_button.png" width="120" height="84" class="webapp_button" style="left:644px"/></a>
+        <a href="#">
+        <img src="pictures/search_button.png" width="120" height="84" class="webapp_button" style="left:766px"/></a>
+        <a href="#">
+        <img src="pictures/help_button.png" width="120" height="84" class="webapp_button" style="left:888px"/></a>
+    	<img src="pictures/logo.png" width="300" height="100" id="logo"/> 
+	</div>
+
+
+<div class="content">
+    <div class="sidebar left"></div> 
+    <div class="sidebar-inner"></div>
+    <div class="sidebar right"></div>
+<h1 style="text-align:center">Database extend</h1>
+<hr />
+<h2>&nbsp;&nbsp;Add Organism:</h2><br/>
+<h3>&nbsp;&nbsp;Organism name:</h3>
+<h3>&nbsp;&nbsp;Synonyms:</h3>
+<form> 
+    <input type="text" id="organism" class="organism_name">
+    <div class="synonym_form" id="synonym_form">
+    <input type="text" name="synonyms">
+</div>
+</form>
+
+<input type="submit" class="organism_name" value="More"
+Style="top:-94px; left:300px; z-index:1;" onclick="addSynonym()">
+
+<input type="submit" class="organism_name" value="Add Organism"
+Style="top: -40px; left:-45px;" onclick="addOrganism()">
+
+<img src="extend_seperator.png" width="100" height="5" class="extend_seperate"/>
+
+<br/><h2>&nbsp;&nbsp;Add Compound:</h2><br/>
+<h3>&nbsp;&nbsp;Compounds:</h3>
+
+<textarea rows="12" cols="50" class="add_compound" style="overflow-y:scroll"></textarea>
+
+<input type="submit" class="add_compound" value="Add Compound" Style="top:0px; left:-320px;">
+
+</div>
+
+</body>
+</html>

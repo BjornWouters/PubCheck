@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Analyse</title>
+</head>
+
+<body style="background: #ECF5FF;">
+
+<h2 style="text-aling: center;"> MeSH analyse </h2>
+
+<% 
+import sys
+sys.path.append('/home/bi2_pg5/public_html/webapplicatie/PubCheck/js')
+import getMeSH
+query = form["query"]
+%>
+<%=getMeSH.getMeSH(query) %>
+
+</body>
+</html>

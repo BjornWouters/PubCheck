@@ -9,7 +9,13 @@ import sys
 sys.path.append('/home/bi2_pg5/public_html/webapplicatie/PubCheck/js')
 import addOrganism
 organism = form["organism"]
+synonymList = []
+i = 0
+while (form.has_key('synonyms'+str(i))):
+	synonymList.append(form["synonyms"+str(i)])
+	i += 1
+
 %>
-<%=addOrganism.appendDatabase(organism) %>
+<%=addOrganism.appendDatabase(organism, synonymList) %>
    </BODY>
 </HTML>

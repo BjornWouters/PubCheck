@@ -28,13 +28,14 @@
         <img src="pictures/visual_button.png" width="120" height="84" class="webapp_button"/></a>
         <a href="extend.html">
         <img src="pictures/Extend_button.png" width="120" height="84" class="webapp_button" style="left:522px"/></a>
-  		<a href="#">
+  		<a href="data.psp">
         <img src="pictures/data_button.png" width="120" height="84" class="webapp_button" style="left:644px"/></a>
         <a onclick="searchCompound()">
         <img src="pictures/search_button.png" width="120" height="84" class="webapp_button" style="left:766px"/></a>
-        <a href="#">
+        <a href="help.html">
         <img src="pictures/help_button.png" width="120" height="84" class="webapp_button" style="left:888px"/></a>
-    	<img src="pictures/logo.png" width="300" height="100" id="logo"/> 
+        <a href="webpage.psp?query=">
+    	<img src="pictures/logo.png" width="300" height="100" id="logo"/></a>
     </div>
 
     <div class="Graph">
@@ -51,7 +52,8 @@
 import sys
 sys.path.append('/home/bi2_pg5/public_html/webapplicatie/PubCheck/js')
 import table
-query = form["query"]
+if form.has_key('query'):
+	query = form["query"]
 %>
 
     <div class="tablePOS">

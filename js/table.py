@@ -11,9 +11,12 @@ def createTable(query):
         MAX_COUNT = 100
          
         Entrez.email = 'A.N.Other@example.com'
-        h = Entrez.esearch(db='pubmed', term=query, retmax=MAX_COUNT)
+        pubmedquery = query.replace('-','\-')
+        h = Entrez.esearch(db='pubmed', term=pubmedquery, retmax=MAX_COUNT)
         result = Entrez.read(h)
         ids = result['IdList']
+        if not ids:
+                return "<h3> geen gevonden resultaten </h3>"
         h = Entrez.efetch(db='pubmed', id=ids, rettype='medline', retmode='text')
         records = Medline.parse(h)
 

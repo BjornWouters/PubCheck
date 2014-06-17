@@ -24,7 +24,7 @@ import createTable
 %>
 
     <div class="searchTable">
-        <table class="footable metro_blue" data-page-size="100">
+        <table class="footable metro_blue" data-page-size="10">
             <thead>
                 <tr>
                     <th>
@@ -44,6 +44,13 @@ import createTable
             </tfoot>
         </table>
     </div>
+    
+<script type="text/javascript">
+	$(function () {
+		$('table').footable();
+	});
+</script>
+    
 <body>
 </body>
 </html>

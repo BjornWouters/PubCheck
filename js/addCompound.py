@@ -1,7 +1,20 @@
 import mysql.connector
 from QueryBuilder import createQuery
+returnString = ""
 
-def addCompound(compound):
+def addCompound(compound_raw):
+        compound = compound_raw.replace("'","") 
+        if ";" in compound:
+            compoundList = compound.split(";")
+            for i in range(len(compoundList)):
+                toDatabase(compoundList[i])
+            return "Succesfully appended: "+returnString
+        else:
+            toDatabase(compound)
+            return "Succesfully appended: "+compound        
+
+def toDatabase(compound):
+        global returnString
         conn = mysql.connector.connect (host = "127.0.0.1",
                                         user = "bi2_pg5",
                                         password = "blaat1234",
@@ -15,7 +28,18 @@ def addCompound(compound):
         for i in range(len(organismList)):
                 cursor_compound_id = conn.cursor()
                 cursor = conn.cursor()
+                
+                cursor_synonyms = conn.cursor()
 
+                cursor_synonyms.execute("SELECT name FROM synonyms "
+                               "WHERE organism_id = "+str(organismList[i][0])+"")
+
+                synonymList = cursor_synonyms.fetchall()
+
+                if synonymList:
+                        synonyms = " OR " + ' OR '.join(elem[0] for elem in synonymList)
+                
+                
                 cursor_compound_id.execute("SELECT compound_id FROM compound "
                                 "ORDER BY organism_id DESC "
                                 "LIMIT 1")                
@@ -24,13 +48,14 @@ def addCompound(compound):
         
                 cursor.execute("INSERT INTO compound "
                                "(compound_id, name, organism_id, query) "
-                                "VALUES("+str(compound_id+i+1)+", '"+str(compound)+"', "+str(organismList[i][0])+", '"+str(createQuery(str(organismList[i][1]), str(compound)))+"')")
+                                "VALUES("+str(compound_id+i+1)+", '"+str(compound)+"', "+str(organismList[i][0])+", '("+str(createQuery(str(organismList[i][1]+synonyms)+")", str(compound)))+"')")
 
                 cursor_compound_id.close()
+                cursor_synonyms.close()
                 cursor.close()
 
         cursor_org.close()
         conn.commit()
         conn.close()
 
-        return "Succesfully appended: "+compound
+        returnString += compound + "\n"

@@ -1,4 +1,5 @@
 import mysql.connector
+from Bio import Entrez
 
 def createJSON(compound):
         conn = mysql.connector.connect (host = "127.0.0.1",
@@ -24,10 +25,12 @@ def createJSON(compound):
         for i in range(len(compoundList)):
                 JSON += '{"name": "'+str(organismList[i][0])+'",'
                 JSON += '"children": ['
-                JSON += '{"name": "Publications", "size": 0,'
+                JSON += '{"name": "Publications", "size": '+getResults(str(compoundList[i][0]))+','
                 JSON += '"url": "javascript:generateTable('
                 JSON += "'"+str(compoundList[i][0])+"'"
-                JSON += ')"},{"name": "Analyse",  "url": "javascript:my_Function()"}]'
+                JSON += ')"},{"name": "Analyse",  "url": "javascript:analyse('
+                JSON += "'"+str(compoundList[i][0])+"'"
+                JSON += ')"}]'
                 if i == len(compoundList)-1:
                         JSON += '}'
                 else:
@@ -44,3 +47,13 @@ def createJSON(compound):
         JSON_file.close()
         
         return JSON
+
+
+def getResults(query):
+        Entrez.email = 'A.N.Other@example.com'
+        h = Entrez.esearch(db='pubmed', retmax=0, term=query)
+        result = Entrez.read(h)
+        return str(result['Count'])
+
+        
+        

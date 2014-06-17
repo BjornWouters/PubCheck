@@ -2,34 +2,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-<link href="css/css_extend.css" rel="stylesheet" type="text/css" />
+<title>PubCheck</title>
+<link rel="stylesheet" type="text/css" media="screen" href="css/css.css" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href="css/footable.core.css?v=2-0-1" rel="stylesheet" type="text/css"/>
+<link href="css/footable.standalone.css" rel="stylesheet" type="text/css"/>
+<link href="css/footable-demos.css" rel="stylesheet" type="text/css"/>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+<script type="text/javascript" src="js/create_graph.js"></script>
+<script type="text/javascript" src="js/analyse.js"></script>
 <script type="text/javascript" src="js/extend.js"></script>
-<style type="text/css">
-body {
-	background-color: #CCC;
-}
-body,td,th {
-	font-family: Arial, Helvetica, sans-serif;
-}
-</style>
+<script src="js/footable.js?v=2-0-1" type="text/javascript"></script>
+<script src="js/footable.sort.js?v=2-0-1" type="text/javascript"></script>
+<script src="js/footable.filter.js?v=2-0-1" type="text/javascript"></script>
+<script src="js/footable.paginate.js?v=2-0-1" type="text/javascript"></script>
+<script src="js/bootstrap-tab.js" type="text/javascript"></script>
 </head>
 
-<body onload="test();">
-<%import mysql.connector
-compound = ''
-conn = mysql.connector.connect (host = "127.0.0.1",
-                                user = "bi2_pg5",
-                                password = "blaat1234",
-                                db= "bi2_pg5")
-cursor_org = conn.cursor()
-cursor_org.execute("SELECT * FROM compound")
-
-for row in cursor_org:
-	compound+=row[1]+"+"
-cursor_org.close()
-%>
-AHAHAHAHAHAHAH
+<body>
     <div class="Header">
         <img src="pictures/header.png" alt="" name="Header" width="800" height="100" class="header_image" id="Header" />
         <a href="webpage.psp?query=">
@@ -38,50 +30,70 @@ AHAHAHAHAHAHAH
         <img src="pictures/Extend_button.png" width="120" height="84" class="webapp_button" style="left:522px"/></a>
   		<a href="data.psp">
         <img src="pictures/data_button.png" width="120" height="84" class="webapp_button" style="left:644px"/></a>
-        <a href="#">
+        <a onclick="searchCompound()">
         <img src="pictures/search_button.png" width="120" height="84" class="webapp_button" style="left:766px"/></a>
-        <a href="#">
+        <a href="help.html">
         <img src="pictures/help_button.png" width="120" height="84" class="webapp_button" style="left:888px"/></a>
-    	<img src="pictures/logo.png" width="300" height="100" id="logo"/> 
+    	<a href="webpage.psp?query=">
+    	<img src="pictures/logo.png" width="300" height="100" id="logo"/></a> 
     </div>
 
-HIHIHIHIHIHIHIHIHI
+<% 
+import sys
+sys.path.append('/home/bi2_pg5/public_html/webapplicatie/PubCheck/js')
+import createCompound
+import createOrganism
+%>
 
-<script>
-function test(){
-alert("boe")
-var items= [];
-var lijst = '<%=compound%>';
-var compounds = lijst.split("+");
-compounds.pop();
-
-
-for(var i=0;i<compounds.length;i+=1){
+    <div class="compoundTable">
+        <table class="footable metro_blue" data-page-size="10">
+            <thead>
+                <tr>
+                    <th>
+                        Compounds
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <%=createCompound.createTable()%>
+            </tbody>
+            <tfoot>
+                <tr>
+                <td colspan="5">
+                    <div class="pagination pagination-centered"></div>
+                </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 	
-	var comp = compounds[i];
-	items.push({Compounds: comp});
-}
-var rows = "";
-	
-		
-}
+	<div class="organismTable">
+        <table class="footable metro_blue" data-page-size="10">
+            <thead>
+                <tr>
+                    <th>
+                        Organisms
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <%=createOrganism.createOrganism()%>
+            </tbody>
+            <tfoot>
+                <tr>
+                <td colspan="2">
+                    <div class="pagination pagination-centered"></div>
+                </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+<script type="text/javascript">
+	$(function () {
+		$('table').footable();
+	});
 </script>
-
-
-<div id="table"></div>
-
-<script>
-			   document.getElementById("table").innerHTML = '\
-			   <table id="DataList">\
-			   		<thead>\
-			   			<tr>\
-			   				<td>Compound</td>\
-			   			</tr>\
-			   		</thead>\
-			   		<tbody>\
-					</tbody>\
-			   </table>';   
-		</script>  
 
 </body>
 </html>
